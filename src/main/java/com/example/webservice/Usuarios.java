@@ -12,7 +12,7 @@ public class Usuarios {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     private String nombre;
     private String apellidos;
@@ -31,11 +31,11 @@ public class Usuarios {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -75,7 +75,7 @@ public class Usuarios {
         return fecha_nacimiento;
     }
 
-    public void setFechaNacimiento(String fecha_nacimiento) {
+    public void setFecha_nacimiento(String fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
