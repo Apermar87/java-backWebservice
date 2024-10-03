@@ -3,12 +3,7 @@ package com.example.webservice;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:8080")
@@ -18,11 +13,11 @@ public class Controller {
     private UsuarioService usuariosService;
 
     ArrayList<Usuarios> usuarios;
-    
+
     public Controller() {
         usuarios = new ArrayList<>();
-        usuarios.add(new Usuarios("Antonio", "Pérez", "30521874D", "Avenida Carlos 3", "17/05/2000"));
-        usuarios.add(new Usuarios("Pedro", "Marín", "50412987R", "Avenida Cervantes", "05/06/1998"));
+        usuarios.add(new Usuarios("Antonio", "Pérez", "30521874D", "Avenida Carlos 3", "1990-01-01"));
+        usuarios.add(new Usuarios("Pedro", "Marín", "50412987R", "Avenida Cervantes", "1990-01-01"));
     }
 
     @GetMapping("/obtenerListaUsuarios")
@@ -52,15 +47,20 @@ public class Controller {
     }
 
     @PostMapping("/insertarUsuario")
-    public Usuarios insertarUsuario(@RequestParam("nombre") String nombre, @RequestParam("apellidos") String apellidos, @RequestParam("dni") String dni, @RequestParam("direccion") String direccion, @RequestParam("fecha de nacimiento") String fechaNacimiento) {
-        Usuarios nuevoUsuario = new Usuarios(nombre, apellidos, dni, direccion, fechaNacimiento);
+    public Usuarios insertarUsuario(@RequestParam("nombre") String nombre, @RequestParam("apellidos") String apellidos,
+            @RequestParam("dni") String dni, @RequestParam("direccion") String direccion,
+            @RequestParam("fecha de nacimiento") String fecha_nacimiento) {
+        Usuarios nuevoUsuario = new Usuarios(nombre, apellidos, dni, direccion, fecha_nacimiento);
         usuarios.add(nuevoUsuario);
 
-        usuariosService.guardarBaseDatos(nuevoUsuario);
+        return usuariosService.guardarBaseDatos(nuevoUsuario);
+    }
 
-        return nuevoUsuario;
-    } 
-
-    
+    @PostMapping("/pruebaInsertar")
+    public String pruebaInsertar() {
+        Usuarios usuarioPrueba = new Usuarios("Prueba2", "Usuario2", "32345678R", "Dirección Prueba2", "1990-01-04");
+        usuariosService.guardarBaseDatos(usuarioPrueba);
+        return "Insertado";
+    }
 
 }

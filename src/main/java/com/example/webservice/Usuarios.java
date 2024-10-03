@@ -1,19 +1,42 @@
 package com.example.webservice;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "empleados")
 public class Usuarios {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     private String nombre;
     private String apellidos;
     private String dni;
     private String direccion;
-    private String fechaNacimiento;
+    private String fecha_nacimiento;
 
-    public Usuarios(String nombre, String apellidos, String dni, String direccion, String fechaNacimiento) {
+    public Usuarios() {
+    }
+
+    public Usuarios(String nombre, String apellidos, String dni, String direccion, String fecha_nacimiento) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
         this.direccion = direccion;
-        this.fechaNacimiento = fechaNacimiento;
+        this.fecha_nacimiento = fecha_nacimiento;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -48,12 +71,12 @@ public class Usuarios {
         this.direccion = direccion;
     }
 
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
+    public String getFecha_nacimiento() {
+        return fecha_nacimiento;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setFechaNacimiento(String fecha_nacimiento) {
+        this.fecha_nacimiento = fecha_nacimiento;
     }
 
 }
