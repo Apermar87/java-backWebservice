@@ -2,6 +2,12 @@
 
 Este proyecto es una aplicación RESTful desarrollada con **Spring Boot** que implementa un CRUD (Crear, Leer, Actualizar, Eliminar) para gestionar información de usuarios almacenada en una base de datos.
 
+## 🛠️ Tecnologías Utilizadas
+Spring Boot: Framework para aplicaciones Java.
+JPA/Hibernate: Para el manejo de la persistencia.
+MySQL: Base de datos relacional.
+Postman: Herramienta para probar APIs.
+
 ## 🚀 Funcionalidades
 
 1. **Obtener todos los usuarios**: Devuelve una lista de todos los usuarios registrados.
@@ -52,3 +58,6 @@ Clase principal que inicia la aplicación Spring Boot.
    spring.datasource.username=tu_usuario
    spring.datasource.password=tu_contraseña
    spring.jpa.hibernate.ddl-auto=update
+
+2. Ejecuta el proyecto con el siguiente comando:
+   mvn spring-boot:run
