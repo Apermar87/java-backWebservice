@@ -3,10 +3,10 @@
 Este proyecto es una aplicación RESTful desarrollada con **Spring Boot** que implementa un CRUD (Crear, Leer, Actualizar, Eliminar) para gestionar información de usuarios almacenada en una base de datos.
 
 ## 🛠️ Tecnologías Utilizadas
-Spring Boot: Framework para aplicaciones Java.
-JPA/Hibernate: Para el manejo de la persistencia.
-MySQL: Base de datos relacional.
-Postman: Herramienta para probar APIs.
+- Spring Boot: Framework para aplicaciones Java.
+- JPA/Hibernate: Para el manejo de la persistencia.
+- MySQL: Base de datos relacional.
+- Postman: Herramienta para probar APIs.
 
 ## 🚀 Funcionalidades
 
