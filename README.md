@@ -31,6 +31,8 @@ Este proyecto es una aplicación RESTful desarrollada con **Spring Boot** que im
 - **`script.sql` y `script1.sql`**: Scripts SQL ejecutados por Liquibase.
 - **`application.properties`**: Configuración del proyecto.
 - **`WebserviceApplication.java`**: Clase principal de Spring Boot.
+- **`pom.xml`**: Gestión de dependencias con Maven.
+- **`.gitignore`**: Archivos y carpetas ignorados por Git.
 
 ---
 
@@ -51,12 +53,14 @@ Liquibase se integra automáticamente al iniciar el proyecto y aplica los cambio
 
 ## 🔧 Configuración y Ejecución
 
-### 1. Configuración de MySQL con Docker
+### 1. Clona este repositorio
+
+### 2. Configuración de MySQL con Docker
 Crea un contenedor Docker para la base de datos MySQL:
 
 docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=<tu_contraseña> -e MYSQL_DATABASE=<nombre_base_datos> -p 3306:3306 -d mysql:latest
 
-### 2. Configura la base de datos en `application.properties`:
+### 3. Configura la base de datos en `application.properties`:
 
 spring.datasource.url=jdbc:mysql://localhost:3306/<nombre_base_datos>
 spring.datasource.username=<tu_usuario>
@@ -65,5 +69,17 @@ spring.jpa.hibernate.ddl-auto=none
 spring.liquibase.change-log=classpath:/db/changelog/db.changelog-master.xml
 
 
-### 3. Ejecuta el proyecto con el siguiente comando:
-   mvn spring-boot:run
+### 4. Ejecuta el proyecto con el siguiente comando:
+mvn spring-boot:run
+
+### 5. Prueba las rutas REST
+Utiliza Postman u otra herramienta para probar las rutas:
+
+- GET /obtenerListaUsuarios
+- POST /obtenerUsuarioDni
+- POST /insertarUsuario
+- DELETE /borrarUsuarioDni
+
+## 🌟 Próximos Pasos
+- Añadir validación de datos: Mejorar la validación de entradas en las APIs.
+- Implementar autenticación: Proteger las rutas REST mediante autenticación y autorización.
