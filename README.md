@@ -1,4 +1,4 @@
-# Web Service CRUD Application - Spring Boot
+# Web Service CRUD Application - Spring Boot & MySQL
 
 Este proyecto es una aplicación RESTful desarrollada con **Spring Boot** que implementa un CRUD (Crear, Leer, Actualizar, Eliminar) para gestionar información de usuarios almacenada en una base de datos **MySQL** utilizando **Liquibase** para el control de cambios en la base de datos y **Docker** para la contenerización.
 
